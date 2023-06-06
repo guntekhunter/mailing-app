@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@heroicons/react/outline";
 
 export default function Ipassword({ onChange }) {
+  const [isShow, setIsShow] = useState(false);
+  const hide = () => {
+    setIsShow(!isShow);
+    console.log("clicked");
+  };
   return (
     <div className="relative flex items-center text-gray-400 relative">
       <svg
+        onClick={hide}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
@@ -18,7 +24,7 @@ export default function Ipassword({ onChange }) {
         />
       </svg>
       <input
-        type="text"
+        type={`${isShow ? "text" : "password"}`}
         onChange={onChange}
         className={`pr-3 pr-8 focus:outline-none focus:border-[#1975FF] focus:ring-sky-[#BBCCF6] focus:ring-1 focus:border-[.9px] px-1 w-full h-fit rounded-[6px] h-[2rem] border-[1.5px] text-[.8rem] px-1.5 py-1`}
       />
