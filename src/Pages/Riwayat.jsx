@@ -37,7 +37,7 @@ export default function Riwayat() {
       try {
         const res = await getAllMailing(page, 5);
         setMailings(res.data.result);
-        setMailingsLength(res.data.totalPages);
+        setMailingsLength(res.data.length);
       } catch (err) {
         console.log(err);
       }
